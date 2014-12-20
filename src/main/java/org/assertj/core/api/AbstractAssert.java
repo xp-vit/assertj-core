@@ -402,9 +402,10 @@ public abstract class AbstractAssert<S extends AbstractAssert<S, A>, A> implemen
    * @return this assertion object.
    * @throws Exception see {@link String#format(String, Object...)} exception clause.
    */
+  @Override
   public S overridingErrorMessage(String newErrorMessage, Object... args) {
-	info.overridingErrorMessage(formatIfArgs(newErrorMessage, args));
-	return myself;
+    info.overridingErrorMessage(formatIfArgs(newErrorMessage, args));
+    return myself;
   }
 
   /** {@inheritDoc} */
