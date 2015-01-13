@@ -20,7 +20,9 @@ import java.util.Collection;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IIterableAssert<S extends AbstractIterableAssert<S, A, T>, A extends Iterable<T>, T>extends Assert<S, A>, ObjectEnumerableAssert<S, T> {
+public interface IIterableAssert<S extends AbstractIterableAssert<S, A, T>, A extends Iterable<? extends T>, T>
+    extends Assert<S, A>, ObjectEnumerableAssert<S, T> {
+  
   S isSubsetOf(Iterable<? extends T> values);
 
   S doesNotContainAnyElementsOf(Iterable<? extends T> iterable);

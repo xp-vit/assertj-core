@@ -16,21 +16,22 @@ package org.assertj.core.api;
  * Created by Alexander Bischof on 16.12.14.
  */
 public interface IThrowableAssert<S extends AbstractThrowableAssert<S, A>, A extends Throwable> extends Assert<S, A> {
-  S hasMessage(String message);
 
-  S hasNoCause();
+  IThrowableAssert<S, A> hasMessage(String message);
 
-  S hasMessageStartingWith(String description);
+  IThrowableAssert<S, A> hasNoCause();
 
-  S hasMessageContaining(String description);
+  IThrowableAssert<S, A> hasMessageStartingWith(String description);
 
-  S hasMessageEndingWith(String description);
+  IThrowableAssert<S, A> hasMessageContaining(String description);
 
-  S hasCauseInstanceOf(Class<? extends Throwable> type);
+  IThrowableAssert<S, A> hasMessageEndingWith(String description);
 
-  S hasCauseExactlyInstanceOf(Class<? extends Throwable> type);
+  IThrowableAssert<S, A> hasCauseInstanceOf(Class<? extends Throwable> type);
 
-  S hasRootCauseInstanceOf(Class<? extends Throwable> type);
+  IThrowableAssert<S, A> hasCauseExactlyInstanceOf(Class<? extends Throwable> type);
 
-  S hasRootCauseExactlyInstanceOf(Class<? extends Throwable> type);
+  IThrowableAssert<S, A> hasRootCauseInstanceOf(Class<? extends Throwable> type);
+
+  IThrowableAssert<S, A> hasRootCauseExactlyInstanceOf(Class<? extends Throwable> type);
 }

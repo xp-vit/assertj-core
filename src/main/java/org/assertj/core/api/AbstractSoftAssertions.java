@@ -35,16 +35,15 @@ public abstract class AbstractSoftAssertions {
 
 	return (V) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new InvocationHandler() {
 	  @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		Object result = null;
 		try {
-		  result = method.invoke(objectToProxy, args);
+		  method.invoke(objectToProxy, args);
 		} catch (InvocationTargetException e) {
 		  Throwable cause = e.getCause();
 		  if (cause instanceof AssertionError){
 		    collector.addThrowable(e);
 		  }
 		}
-		return result;
+		return proxy;
 	  }
 	});
   }
@@ -127,7 +126,7 @@ public abstract class AbstractSoftAssertions {
    * @param actual the actual value.
    * @return the created assertion object.
    */
-  public ICharacterAssert jdkProxy(char actual) {
+  public ICharacterAssert assertThat(char actual) {
 	return jdkProxy(ICharacterAssert.class, new CharacterAssert(actual));
   }
 

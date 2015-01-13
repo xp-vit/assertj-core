@@ -15,16 +15,18 @@ package org.assertj.core.api;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IShortAssert<S extends AbstractShortAssert<S>> extends Assert<S, Short>, ComparableAssert<S, Short>, NumberAssert<S, Short> {
-  S isEqualTo(short expected);
+public interface IShortAssert<S extends AbstractShortAssert<S>>
+    extends Assert<S, Short>, ComparableAssert<S, Short>, NumberAssert<S, Short> {
 
-  S isNotEqualTo(short other);
+  IShortAssert<S> isEqualTo(short expected);
 
-  S isLessThan(short other);
+  IShortAssert<S> isNotEqualTo(short other);
 
-  S isLessThanOrEqualTo(short other);
+  IShortAssert<S> isLessThan(short other);
 
-  S isGreaterThan(short other);
+  IShortAssert<S> isLessThanOrEqualTo(short other);
 
-  S isGreaterThanOrEqualTo(short other);
+  IShortAssert<S> isGreaterThan(short other);
+
+  IShortAssert<S> isGreaterThanOrEqualTo(short other);
 }

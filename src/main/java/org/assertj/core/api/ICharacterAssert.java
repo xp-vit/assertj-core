@@ -12,25 +12,24 @@
  */
 package org.assertj.core.api;
 
-/**
- * Created by Alexander Bischof on 16.12.14.
- */
-public interface ICharacterAssert<S extends AbstractCharacterAssert<S>> extends Assert<S, Character>, ComparableAssert<S, Character> {
-  S isEqualTo(char expected);
+public interface ICharacterAssert<S extends AbstractCharacterAssert<S>>
+    extends Assert<S, Character>, ComparableAssert<S, Character> {
+  
+  ICharacterAssert<S> isEqualTo(char expected);
 
-  S isNotEqualTo(char other);
+  ICharacterAssert<S> isNotEqualTo(char other);
 
-  S isLessThan(char other);
+  ICharacterAssert<S> isLessThan(char other);
 
-  S isLessThanOrEqualTo(char other);
+  ICharacterAssert<S> isLessThanOrEqualTo(char other);
 
-  S isGreaterThan(char other);
+  ICharacterAssert<S> isGreaterThan(char other);
 
-  S inUnicode();
+  ICharacterAssert<S> inUnicode();
 
-  S isGreaterThanOrEqualTo(char other);
+  ICharacterAssert<S> isGreaterThanOrEqualTo(char other);
 
-  S isLowerCase();
+  ICharacterAssert<S> isLowerCase();
 
-  S isUpperCase();
+  ICharacterAssert<S> isUpperCase();
 }

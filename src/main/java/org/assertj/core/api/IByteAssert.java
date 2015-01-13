@@ -15,16 +15,18 @@ package org.assertj.core.api;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IByteAssert<S extends AbstractByteAssert<S>> extends Assert<S, Byte>, ComparableAssert<S, Byte>, NumberAssert<S, Byte> {
-  S isEqualTo(byte expected);
+public interface IByteAssert<S extends AbstractByteAssert<S>>
+    extends Assert<S, Byte>, ComparableAssert<S, Byte>, NumberAssert<S, Byte> {
 
-  S isNotEqualTo(byte other);
+  IByteAssert<S> isEqualTo(byte expected);
 
-  S isLessThan(byte other);
+  IByteAssert<S> isNotEqualTo(byte other);
 
-  S isLessThanOrEqualTo(byte other);
+  IByteAssert<S> isLessThan(byte other);
 
-  S isGreaterThan(byte other);
+  IByteAssert<S> isLessThanOrEqualTo(byte other);
 
-  S isGreaterThanOrEqualTo(byte other);
+  IByteAssert<S> isGreaterThan(byte other);
+
+  IByteAssert<S> isGreaterThanOrEqualTo(byte other);
 }

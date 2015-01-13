@@ -19,39 +19,39 @@ import java.nio.charset.Charset;
  * Created by Alexander Bischof on 16.12.14.
  */
 public interface IFileAssert<S extends AbstractFileAssert<S>> extends Assert<S, File> {
-  S exists();
+  IFileAssert<S> exists();
 
-  S doesNotExist();
+  IFileAssert<S> doesNotExist();
 
-  S isFile();
+  IFileAssert<S> isFile();
 
-  S isDirectory();
+  IFileAssert<S> isDirectory();
 
-  S isAbsolute();
+  IFileAssert<S> isAbsolute();
 
-  S isRelative();
+  IFileAssert<S> isRelative();
 
-  S hasContentEqualTo(File expected);
+  IFileAssert<S> hasContentEqualTo(File expected);
 
-  S hasBinaryContent(byte[] expected);
+  IFileAssert<S> hasBinaryContent(byte[] expected);
 
-  S usingCharset(String charsetName);
+  IFileAssert<S> usingCharset(String charsetName);
 
-  S usingCharset(Charset charset);
+  IFileAssert<S> usingCharset(Charset charset);
 
-  S hasContent(String expected);
+  IFileAssert<S> hasContent(String expected);
 
-  S canWrite();
+  IFileAssert<S> canWrite();
 
-  S canRead();
+  IFileAssert<S> canRead();
 
-  S hasParent(File expected);
+  IFileAssert<S> hasParent(File expected);
 
-  S hasParent(String expected);
+  IFileAssert<S> hasParent(String expected);
 
-  S hasExtension(String expected);
+  IFileAssert<S> hasExtension(String expected);
 
-  S hasName(String expected);
+  IFileAssert<S> hasName(String expected);
 
-  S hasNoParent();
+  IFileAssert<S> hasNoParent();
 }

@@ -12,9 +12,13 @@
  */
 package org.assertj.core.api;
 
+import static org.assertj.core.extractor.Extractors.toStringMethod;
 import static org.assertj.core.groups.Properties.extractProperty;
+import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.List;
+
+import org.assertj.core.groups.FieldsOrPropertiesExtractor;
 
 /**
  * <p>
@@ -115,16 +119,20 @@ import java.util.List;
  * 
  * @author Brian Laframboise
  * 
- * @see <a href="http://beust.com/weblog/2012/07/29/reinventing-assertions/">Reinventing assertions</a> for the inspiration
+ * @see <a href="http://beust.com/weblog/2012/07/29/reinventing-assertions/">Reinventing assertions</a> for the
+ *      inspiration
  */
 public class SoftAssertions extends AbstractSoftAssertions {
 
-    /**
-     * Creates a new </code>{@link SoftAssertions}</code>.
-     */
-    public SoftAssertions() {
-        super();
-    }
+  private static final String COMPARISON_FAILURE_PREFIX = "org.junit.ComparisonFailure: ";
+  private static final String ASSERTION_ERROR_PREFIX = "java.lang.AssertionError: ";
+
+  /**
+   * Creates a new </code>{@link SoftAssertions}</code>.
+   */
+  public SoftAssertions() {
+	super();
+  }
 
   /**
    * Verifies that no proxied assertion methods have failed.
@@ -132,10 +140,22 @@ public class SoftAssertions extends AbstractSoftAssertions {
    * @throws SoftAssertionError if any proxied assertion objects threw
    */
   public void assertAll() {
-    List<Throwable> errors = collector.errors();
-    if (!errors.isEmpty()) {
-      throw new SoftAssertionError(extractProperty("message", String.class).from(errors));
-    }
+	List<Throwable> errors = collector.errors();
+	if (!errors.isEmpty()) {
+	  List<String> errorMessages = newArrayList();
+	  for (Throwable throwable : errors) {
+		String errorDescription = throwable.getCause().toString();
+		errorMessages.add(messageWithoutErrorTypePrefix(errorDescription));
+	  }
+	  throw new SoftAssertionError(errorMessages);
+	}
+  }
+
+  private String messageWithoutErrorTypePrefix(String errorDescription) {
+	if (errorDescription.startsWith(COMPARISON_FAILURE_PREFIX))
+	  return errorDescription.substring(COMPARISON_FAILURE_PREFIX.length());
+	if (errorDescription.startsWith(ASSERTION_ERROR_PREFIX)) return errorDescription.substring(ASSERTION_ERROR_PREFIX.length());
+	return errorDescription;
   }
 
 }

@@ -16,11 +16,11 @@ package org.assertj.core.api;
  * Created by Alexander Bischof on 16.12.14.
  */
 public interface IBooleanAssert<S extends AbstractBooleanAssert<S>> extends Assert<S, Boolean> {
-  AbstractBooleanAssert isTrue();
+  IBooleanAssert<S> isTrue();
 
-  AbstractBooleanAssert isFalse();
+  IBooleanAssert<S> isFalse();
 
-  AbstractBooleanAssert isEqualTo(boolean expected);
+  IBooleanAssert<S> isEqualTo(boolean expected);
 
-  AbstractBooleanAssert isNotEqualTo(boolean other);
+  IBooleanAssert<S> isNotEqualTo(boolean other);
 }

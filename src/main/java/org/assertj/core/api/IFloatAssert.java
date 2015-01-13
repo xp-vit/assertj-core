@@ -17,21 +17,23 @@ import org.assertj.core.data.Offset;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IFloatAssert<S extends AbstractFloatAssert<S>> extends Assert<S, Float>, ComparableAssert<S, Float>, FloatingPointNumberAssert<S, Float> {
-  S isEqualTo(float expected);
+public interface IFloatAssert<S extends AbstractFloatAssert<S>>
+    extends Assert<S, Float>, ComparableAssert<S, Float>, FloatingPointNumberAssert<S, Float> {
+  
+  IFloatAssert<S> isEqualTo(float expected);
 
   // duplicate javadoc of isCloseTo(Float other, Offset<Float> offset but can't define it in super class
-  S isCloseTo(float other, Offset<Float> offset);
+  IFloatAssert<S> isCloseTo(float other, Offset<Float> offset);
 
-  S isEqualTo(float expected, Offset<Float> offset);
+  IFloatAssert<S> isEqualTo(float expected, Offset<Float> offset);
 
-  S isNotEqualTo(float other);
+  IFloatAssert<S> isNotEqualTo(float other);
 
-  S isLessThan(float other);
+  IFloatAssert<S> isLessThan(float other);
 
-  S isLessThanOrEqualTo(float other);
+  IFloatAssert<S> isLessThanOrEqualTo(float other);
 
-  S isGreaterThan(float other);
+  IFloatAssert<S> isGreaterThan(float other);
 
-  S isGreaterThanOrEqualTo(float other);
+  IFloatAssert<S> isGreaterThanOrEqualTo(float other);
 }

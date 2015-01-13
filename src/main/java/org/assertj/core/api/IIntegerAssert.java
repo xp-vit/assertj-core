@@ -15,16 +15,18 @@ package org.assertj.core.api;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IIntegerAssert<S extends AbstractIntegerAssert<S>> extends Assert<S, Integer>, ComparableAssert<S, Integer>, NumberAssert<S, Integer> {
-  S isEqualTo(int expected);
+public interface IIntegerAssert<S extends AbstractIntegerAssert<S>> extends Assert<S, Integer>,
+    ComparableAssert<S, Integer>, NumberAssert<S, Integer> {
+  
+  IIntegerAssert<S> isEqualTo(int expected);
 
-  S isNotEqualTo(int other);
+  IIntegerAssert<S> isNotEqualTo(int other);
 
-  S isLessThan(int other);
+  IIntegerAssert<S> isLessThan(int other);
 
-  S isLessThanOrEqualTo(int other);
+  IIntegerAssert<S> isLessThanOrEqualTo(int other);
 
-  S isGreaterThan(int other);
+  IIntegerAssert<S> isGreaterThan(int other);
 
-  S isGreaterThanOrEqualTo(int other);
+  IIntegerAssert<S> isGreaterThanOrEqualTo(int other);
 }

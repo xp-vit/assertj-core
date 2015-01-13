@@ -19,18 +19,20 @@ import java.util.Map;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IMapAssert<S extends AbstractMapAssert<S, A, K, V>, A extends Map<K, V>, K, V> extends Assert<S, A>, EnumerableAssert<S, MapEntry> {
+public interface IMapAssert<S extends AbstractMapAssert<S, A, K, V>, A extends Map<K, V>, K, V>
+    extends Assert<S, A>, EnumerableAssert<S, MapEntry<? extends K, ? extends V>> {
+  
   S hasSameSizeAs(Map<?, ?> other);
 
-  S contains(MapEntry... entries);
+  S contains(@SuppressWarnings("unchecked") MapEntry<? extends K, ? extends V>... entries);
 
   S containsEntry(K key, V value);
 
-  S doesNotContain(MapEntry... entries);
+  S doesNotContain(@SuppressWarnings("unchecked") MapEntry<? extends K, ? extends V>... entries);
 
   S doesNotContainEntry(K key, V value);
 
-  @SuppressWarnings("unchecked") S containsKey(K key);
+  S containsKey(K key);
 
   S containsKeys(@SuppressWarnings("unchecked") K... keys);
 
@@ -42,7 +44,9 @@ public interface IMapAssert<S extends AbstractMapAssert<S, A, K, V>, A extends M
 
   S doesNotContainValue(V value);
 
-  S containsOnly(MapEntry... entries);
+  S containsOnly(@SuppressWarnings("unchecked") MapEntry<? extends K, ? extends V>... entries);
 
-  S containsExactly(MapEntry... entries);
+  S containsExactly(@SuppressWarnings("unchecked") MapEntry<? extends K, ? extends V>... entries);
+
+  S doesNotContainKeys(@SuppressWarnings("unchecked") K... keys);
 }

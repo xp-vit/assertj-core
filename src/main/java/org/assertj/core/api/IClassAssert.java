@@ -18,21 +18,22 @@ import java.lang.annotation.Annotation;
  * Created by Alexander Bischof on 16.12.14.
  */
 public interface IClassAssert<S extends AbstractClassAssert<S>> extends Assert<S, Class<?>> {
-  S isAssignableFrom(Class<?>... others);
 
-  S isNotInterface();
+  IClassAssert<S> isAssignableFrom(Class<?>... others);
 
-  S isInterface();
+  IClassAssert<S> isNotInterface();
 
-  S isAnnotation();
+  IClassAssert<S> isInterface();
 
-  S isNotAnnotation();
+  IClassAssert<S> isAnnotation();
 
-  S hasAnnotations(@SuppressWarnings("unchecked") Class<? extends Annotation>... annotations);
+  IClassAssert<S> isNotAnnotation();
 
-  @SuppressWarnings("unchecked") S hasAnnotation(Class<? extends Annotation> annotation);
+  IClassAssert<S> hasAnnotations(@SuppressWarnings("unchecked") Class<? extends Annotation>... annotations);
 
-  S hasFields(String... fields);
+  IClassAssert<S> hasAnnotation(Class<? extends Annotation> annotation);
 
-  S hasDeclaredFields(String... fields);
+  IClassAssert<S> hasFields(String... fields);
+
+  IClassAssert<S> hasDeclaredFields(String... fields);
 }

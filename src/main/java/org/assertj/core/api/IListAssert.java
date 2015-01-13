@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IListAssert<S extends AbstractListAssert<S, A, T>, A extends List<T>, T>
+public interface IListAssert<S extends AbstractListAssert<S, A, T>, A extends List<? extends T>, T>
 		extends Assert<S, A>, ObjectEnumerableAssert<S, T>,
 		IndexedObjectEnumerableAssert<S, T> {
   S has(Condition<? super T> condition, Index index);

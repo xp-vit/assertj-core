@@ -17,6 +17,7 @@ import java.io.InputStream;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IInputStreamAssert<S extends AbstractInputStreamAssert<S, A>, A extends InputStream> extends Assert<S, A> {
-  S hasContentEqualTo(InputStream expected);
+public interface IInputStreamAssert<S extends AbstractInputStreamAssert<S, A>, A extends InputStream>
+    extends Assert<S, A> {
+  IInputStreamAssert<S, A> hasContentEqualTo(InputStream expected);
 }

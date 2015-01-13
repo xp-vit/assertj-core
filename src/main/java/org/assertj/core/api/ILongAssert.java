@@ -15,16 +15,18 @@ package org.assertj.core.api;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface ILongAssert<S extends AbstractLongAssert<S>> extends Assert<S, Long>, ComparableAssert<S, Long>, NumberAssert<S, Long> {
-  S isEqualTo(long expected);
+public interface ILongAssert<S extends AbstractLongAssert<S>>
+    extends Assert<S, Long>, ComparableAssert<S, Long>, NumberAssert<S, Long> {
 
-  S isNotEqualTo(long other);
+  ILongAssert<S> isEqualTo(long expected);
 
-  S isLessThan(long other);
+  ILongAssert<S> isNotEqualTo(long other);
 
-  S isLessThanOrEqualTo(long other);
+  ILongAssert<S> isLessThan(long other);
 
-  S isGreaterThan(long other);
+  ILongAssert<S> isLessThanOrEqualTo(long other);
 
-  S isGreaterThanOrEqualTo(long other);
+  ILongAssert<S> isGreaterThan(long other);
+
+  ILongAssert<S> isGreaterThanOrEqualTo(long other);
 }

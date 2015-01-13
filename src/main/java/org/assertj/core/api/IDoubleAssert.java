@@ -17,21 +17,23 @@ import org.assertj.core.data.Offset;
 /**
  * Created by Alexander Bischof on 16.12.14.
  */
-public interface IDoubleAssert<S extends AbstractDoubleAssert<S>> extends Assert<S, Double>, ComparableAssert<S, Double>, FloatingPointNumberAssert<S, Double> {
+public interface IDoubleAssert<S extends AbstractDoubleAssert<S>>
+    extends Assert<S, Double>, ComparableAssert<S, Double>, FloatingPointNumberAssert<S, Double> {
+  
   // duplicate javadoc of isCloseTo(double other, Offset<Double> offset but can't define it in super class
-  S isCloseTo(double other, Offset<Double> offset);
+  IDoubleAssert<S> isCloseTo(double other, Offset<Double> offset);
 
-  S isEqualTo(double expected);
+  IDoubleAssert<S> isEqualTo(double expected);
 
-  S isEqualTo(double expected, Offset<Double> offset);
+  IDoubleAssert<S> isEqualTo(double expected, Offset<Double> offset);
 
-  S isNotEqualTo(double other);
+  IDoubleAssert<S> isNotEqualTo(double other);
 
-  S isLessThan(double other);
+  IDoubleAssert<S> isLessThan(double other);
 
-  S isLessThanOrEqualTo(double other);
+  IDoubleAssert<S> isLessThanOrEqualTo(double other);
 
-  S isGreaterThan(double other);
+  IDoubleAssert<S> isGreaterThan(double other);
 
-  S isGreaterThanOrEqualTo(double other);
+  IDoubleAssert<S> isGreaterThanOrEqualTo(double other);
 }
